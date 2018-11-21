@@ -8,6 +8,9 @@
   <!-- <a href="https://codecov.io/gh/spencermountain/wtf_wikipedia">
     <img src="https://codecov.io/gh/spencermountain/wtf_wikipedia/branch/master/graph/badge.svg" />
   </a> -->
+  <a href="https://unpkg.com/fit-aspect-ratio/builds/fit-aspect-ratio.js">
+    <img src="https://badge-size.herokuapp.com/spencermountain/fit-aspect-ratio/master/builds/fit-aspect-ratio.js" />
+  </a>
   <div>like math? me neither!</div>
   <sub>
     by
