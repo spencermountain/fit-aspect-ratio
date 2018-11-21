@@ -32,7 +32,7 @@
   <code>npm i fit-aspect-ratio</code>
 </div>
 
-
+<p></p>
 
 ```js
 const aspect = require('fit-aspect-ratio')
@@ -47,27 +47,32 @@ aspect({ratio:'widescreen', height:400}) // (2.35:1)
 //fit to the closest aspect ratio
 let res = aspect({
   width: 1280,
-  height: 722 // almost 1280×720 (16:9)
+  height: 722 // (almost 1280×720 )
 })
 // { aspect:
-//    { names: [ '16:9', 'hdtv', ... ],
+//    { names: [ '16:9', ... ],
 //      description: 'HD video',
 //      decimal: 1.77777 },
 //   width: 1280,
 //   height: 720
 // }
+
+// force a specific aspect ratio (assumes landscape)
+aspect({ratio:'3:4', height:640, orientation:'portrait'}) //essentially '4:3'
+// {width:480, height:640}
 ```
+
 
 ```html
 <script src="https://unpkg.com/fit-aspect-ratio/builds/fit-aspect-ratio.js"></script>
 <script>
-  aspect({ratio:'A4', height:372})
+  aspect({ratio:'A4', height:8.5, orientation:'landscape'})
 </script>
 ```
 
 you can see the list of aspect-ratios we use [here](./src/aspects.js)
 
-when fitting to an aspect ratio, `height` is adjusted, not width.
+when fitting to an aspect ratio, `height` is adjusted, not width. (..scrolling down is easier?) This can be configured in future versions.
 
 <h3 align="center">
   <a href="https://beta.observablehq.com/@spencermountain/aspect-ratio-finder">Demo</a>
