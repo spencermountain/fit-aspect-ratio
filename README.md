@@ -17,32 +17,39 @@
 <p></p>
 
 <div align="center">
-  <b>fit-aspect-ratio</b> calculates widths/heights according to <a href="https://en.wikipedia.org/wiki/Aspect_ratio_(image)">common ratios</a>.
-  <div>what's an aspect ratio <b>*really*?</b></div>
+  calculates widths/heights according to <a href="https://en.wikipedia.org/wiki/Aspect_ratio_(image)">common ratios</a>.
+  <div>what's an <b>aspect ratio</b> <i>*really*</i>?</div>
   <div><sup>well, i'm actually not quite sure.</sup></div>
-  <h2>🛀 </h2>
-
+  <h1>… </h1>
   <div align="center">But fitting things using math,</div>
   <div align="center">just seems to be nice</div>
   <div align="center">and nobody knows why.</div>
 </div>
 
-<h1>🌴</h1>
+<h1 align="center">🌴</h1>
 
 `npm i fit-aspect-ratio`
 
 ```js
-const fitRatio = require('fit-aspect-ratio')
+const aspect = require('fit-aspect-ratio')
 
 //calculate a missing width/height
-fit({ratio:'3:4', width:400})
+aspect({ratio:'3:4', width:400})
 // {width:300, height:400}
-fit({ratio:'widescreen', height:400})
+
+aspect({ratio:'widescreen', height:400})
 // {width:1200, height:400}
 
 //fit to the closest aspect ratio
-fit({width:603, height:400})
+aspect({width:603, height:400})
 // {ratio:'3:2', width:600, height:400}
+```
+
+```html
+<script src="https://unpkg.com/fit-aspect-ratio/builds/fit-aspect-ratio.min.js"></script>
+<script>
+  aspect({ratio:'widescreen', height:372})
+</script>
 ```
 
 you can see the list of aspect-ratios we use [here](./src/aspects.js)

@@ -1,62 +1,70 @@
-module.exports = [
+const aspects = [
   {
-    title: 'square',
-    description: '1:1',
-    ratio: 1,
-    color: '#e9967a'
+    names: ['square', '1:1'],
+    description: 'Square',
+    width: 1,
   },
   {
-    title: '4:3',
-    description: 'older tvs',
-    ratio: 1.33,
-    color: '#E97AA8'
+    names: ['4:3', 'fullscreen', 'four three', '1.33:1'],
+    description: 'Traditional tvs',
+    width: 1.33,
   },
   {
-    title: 'A4 paper',
-    description: '√2:1 (Lichtenberg ratio)',
-    ratio: 1.41,
-    color: '#BB7AE9'
+    names: ['a4', '√2:1', 'paper', 'lichtenberg', '1:1.41'],
+    description: 'A4 paper',
+    width: 1.41,
   },
   {
-    title: '3:2',
-    description: 'photographs',
-    ratio: 1.5,
-    color: '#7AE9BB'
+    names: ['imax', '1.43:1'],
+    description: 'IMAX film',
+    width: 1.43,
   },
   {
-    title: 'business card',
-    description: '85.60 × 53.98 mm',
-    ratio: 1.58577,
-    color: '#7AA8E9'
+    names: ['3:2', '35mm', 'photo', '1.5:1', '1.5'],
+    description: '35 mm photographs',
+    width: 1.5,
   },
   {
-    title: 'golden ratio',
-    description: '1.6180339...',
-    ratio: 1.6180,
-    color: '#7AE9BB'
+    names: ['business card', 'bank card', '1.58:1'],
+    description: 'bank cards',
+    width: 1.58577,
   },
   {
-    title: '16:9',
-    description: 'HDTV',
-    ratio: 1.78,
-    color: '#E9837A'
+    names: ['golden ratio', 'golden', '1.618', '1.6:1'],
+    description: 'golden ratio',
+    width: 1.6180,
   },
   {
-    title: 'widescreen',
+    names: ['16:9', 'hdtv', 'hd', 'tv', '1.78:1', 'computer'],
+    description: 'HD video',
+    width: 1.78,
+  },
+  {
+    names: ['widescreen', '1.85:1'],
     description: 'fancy tv screens, movie-theatres',
-    ratio: 1.85,
-    color: '#E9837A'
+    width: 1.85,
   },
   {
-    title: '1:2',
-    description: 'some modern cellphones',
-    ratio: 2,
-    color: '#BCE97A'
+    names: ['2:1', 'univisium', 'mobile', '18:9'],
+    description: '2:1',
+    width: 2,
   },
   {
-    title: '\'Cinemascope\'',
-    description: 'some modern movie-theatres',
-    ratio: 2.35,
-    color: '#E9BA7A'
+    names: ['cinemascope', 'widescreen', 'wide', '2.35:1', '2.39:1'],
+    description: 'widescreen',
+    width: 2.35,
   },
+  {
+    names: ['silver', '1 + √2', '2.41:1'],
+    description: 'silver ratio',
+    width: 2.41,
+  }
 ]
+
+let obj = {}
+aspects.forEach((o) => {
+  o.names.forEach((name) => {
+    obj[name] = o
+  })
+})
+module.exports = obj
