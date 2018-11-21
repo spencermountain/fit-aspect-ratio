@@ -46,7 +46,7 @@ aspect({width:603, height:400})
 ```
 
 ```html
-<script src="https://unpkg.com/fit-aspect-ratio/builds/fit-aspect-ratio.min.js"></script>
+<script src="https://unpkg.com/fit-aspect-ratio/builds/fit-aspect-ratio.js"></script>
 <script>
   aspect({ratio:'widescreen', height:372})
 </script>
@@ -55,5 +55,27 @@ aspect({width:603, height:400})
 you can see the list of aspect-ratios we use [here](./src/aspects.js)
 
 [Demo](https://beta.observablehq.com/@spencermountain/aspect-ratio-finder)
+
+**work in progress**
+
+#### ELI5 aspect-ratio:
+ratios are (typically) given as `width:height`
+
+suppose our computer screen is `4:3`, our resolution could be `640x480`.
+
+To calculate:
+```js
+// get a decimal representation
+let decimal= 4/3  // 1.3333333
+// this can get us our width.. 640x480
+width = 480 * decimal
+// 640
+
+// to get height, flip numerator/denominator
+let inverse = 1/decimal // or '3/4'
+height = 640 * inverse
+// 480
+```
+this took me a good while...
 
 MIT

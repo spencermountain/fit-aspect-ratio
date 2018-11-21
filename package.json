@@ -6,7 +6,7 @@
   "scripts": {
     "test": "tape ./tests/*.test.js | tap-dancer",
     "watch": "amble ./scratch.js",
-    "build": "browserify index.js -t [ babelify --presets [ @babel/preset-env ] ] | uglifyjs -m -c > ./assets/_bundle.js"
+    "build": "browserify ./src/index.js -t [ babelify --presets [ @babel/preset-env ] ] | uglifyjs -m -c > ./builds/fit-aspect-ratio.js"
   },
   "repository": {
     "type": "git",
