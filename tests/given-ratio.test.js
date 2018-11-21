@@ -43,6 +43,33 @@ test('missing width', function(t) {
   t.end();
 });
 
+test('explicit orientation', function(t) {
+  let res = aspect({
+    width: 1280,
+    aspect: '16:9',
+    orientation: 'landscape'
+  })
+  t.equal(res.height, 720, 'landscape height')
+  t.equal(res.orientation, 'landscape', 'landscape orientation')
+
+  res = aspect({
+    width: 720,
+    aspect: '16:9',
+    orientation: 'portrait'
+  })
+  t.equal(res.height, 1280, 'portrait height')
+  t.equal(res.orientation, 'portrait', 'portrait orientation')
+
+  res = aspect({
+    height: 1280,
+    aspect: '16:9',
+    orientation: 'portrait'
+  })
+  t.equal(res.width, 720, 'portrait width')
+  t.equal(res.orientation, 'portrait', 'portrait orientation #2')
+  t.end();
+});
+
 // 4:3 aspect ratio resolutions: 640×480, 800×600, 960×720, 1024×768, 1280×960, 1400×1050, 1440×1080, 1600×1200, 1856×1392, 1920×1440, and 2048×1536.
 test('4:3', function(t) {
   var arr = [

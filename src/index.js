@@ -23,27 +23,46 @@ const fitAspect = function(obj = {}) {
   }
   //lookup aspect ratio
   let aspect = parseRatio(obj.aspect || obj.ratio || '')
+  if (aspect === null) {
+    console.error('find-aspect-ratio error: Could not find a given aspect ratio.')
+    return obj
+  }
+  //determine missing height
   if (typeof obj.width === 'number') {
-    let inverse = 1 / aspect.decimal
-    let height = obj.width * inverse
+    let decimal = 1 / aspect.decimal
+    let orientation = obj.orientation || 'landscape'
+    //reverse it (again), if in portrait
+    if (orientation === 'portrait') {
+      decimal = 1 / decimal
+    }
+    let height = obj.width * decimal
     height = Math.round(height)
     return {
       aspect: aspect,
       width: obj.width,
-      height: height
+      height: height,
+      orientation: orientation
     }
   }
+  //determine missing width
   if (typeof obj.height === 'number') {
-    let width = obj.height * aspect.decimal
+    let decimal = aspect.decimal
+    let orientation = obj.orientation || 'landscape'
+    //reverse it, if in portrait
+    if (orientation === 'portrait') {
+      decimal = 1 / decimal
+    }
+    let width = obj.height * decimal
     width = Math.round(width)
     return {
       aspect: aspect,
       width: width,
-      height: obj.height
+      height: obj.height,
+      orientation: orientation
     }
   }
   //doh
-  console.error('find-aspect-ratio error: Please supply a height, width, or ratio value')
+  console.error('find-aspect-ratio error: Please supply a height, width, or ratio value.')
   return obj
 }
 

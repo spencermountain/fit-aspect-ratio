@@ -9,7 +9,9 @@ const aspect = require('./src')
 
 //portrait mode 1280×720
 let portrait = aspect({
-  width: 1281,
-  height: 1282
+  width: 1280,
+  aspect: '16:9',
+  orientation: 'landscape'
+// height: 1282
 })
 console.log(portrait)
