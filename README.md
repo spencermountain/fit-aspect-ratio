@@ -34,31 +34,43 @@
 const aspect = require('fit-aspect-ratio')
 
 //calculate a missing width/height
-aspect({ratio:'3:4', width:400})
-// {width:300, height:400}
+aspect({ratio:'3:4', width:640})
+// {width:300, height:480}
 
-aspect({ratio:'widescreen', height:400})
-// {width:1200, height:400}
+aspect({ratio:'widescreen', height:400}) // (2.35:1)
+// {width:940, height:400}
 
 //fit to the closest aspect ratio
-aspect({width:603, height:400})
-// {ratio:'3:2', width:600, height:400}
+let res = aspect({
+  width: 1280,
+  height: 722 // almost 1280×720 (16:9)
+})
+// { aspect:
+//    { names: [ '16:9', 'hdtv', ... ],
+//      description: 'HD video',
+//      decimal: 1.77777 },
+//   width: 1280,
+//   height: 720
+// }
 ```
 
 ```html
 <script src="https://unpkg.com/fit-aspect-ratio/builds/fit-aspect-ratio.js"></script>
 <script>
-  aspect({ratio:'widescreen', height:372})
+  aspect({ratio:'A4', height:372})
 </script>
 ```
 
 you can see the list of aspect-ratios we use [here](./src/aspects.js)
 
+when fitting to an aspect ratio, `height` is adjusted, not width.
+
 [Demo](https://beta.observablehq.com/@spencermountain/aspect-ratio-finder)
 
-**work in progress**
 
-#### ELI5 aspect-ratio:
+
+<h2 align="right">ELI5 aspect-ratio:</h2>
+
 ratios are (typically) given as `width:height`
 
 suppose our computer screen is `4:3`, our resolution could be `640x480`.
@@ -67,7 +79,8 @@ To calculate:
 ```js
 // get a decimal representation
 let decimal= 4/3  // 1.3333333
-// this can get us our width.. 640x480
+
+// this can get us our width..
 width = 480 * decimal
 // 640
 

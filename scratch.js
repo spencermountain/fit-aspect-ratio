@@ -1,7 +1,8 @@
 const aspect = require('./src')
 
+//1280×720
 let res = aspect({
-  ratio: '16:9',
-  width: 1280 //1280×720
+  width: 1280,
+  height: 722
 })
 console.log(res)

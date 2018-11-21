@@ -1,11 +1,11 @@
-const aspects = [
+const list = [
   {
     names: ['square', '1:1', 'instagram'],
     description: 'Square',
     decimal: 1,
   },
   {
-    names: ['4:3', 'fullscreen', 'four three', '1.33:1'],
+    names: ['4:3', 'fullscreen', 'four three', '1.33:1', 'ipad'],
     description: 'Traditional TVs',
     decimal: 1.333333,
   },
@@ -35,7 +35,7 @@ const aspects = [
     decimal: 1.61803,
   },
   {
-    names: ['16:9', 'hdtv', 'hd', 'tv', '1.78:1', 'computer'],
+    names: ['16:9', 'hdtv', 'hd', 'tv', '1.78:1', 'computer', 'iphone'],
     description: 'HD video',
     decimal: 1.77777,
   },
@@ -62,10 +62,13 @@ const aspects = [
 ]
 
 //flip it into a nice lookup hash
-let obj = {}
-aspects.forEach((o) => {
+let lookup = {}
+list.forEach((o) => {
   o.names.forEach((name) => {
-    obj[name] = o
+    lookup[name] = o
   })
 })
-module.exports = obj
+module.exports = {
+  lookup: lookup,
+  list: list
+}
