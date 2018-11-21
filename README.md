@@ -28,7 +28,7 @@
 
 <h1 align="center">🌴</h1>
 
-`npm i fit-aspect-ratio`
+<code align="center">npm i fit-aspect-ratio</code>
 
 ```js
 const aspect = require('fit-aspect-ratio')
@@ -65,11 +65,12 @@ you can see the list of aspect-ratios we use [here](./src/aspects.js)
 
 when fitting to an aspect ratio, `height` is adjusted, not width.
 
-[Demo](https://beta.observablehq.com/@spencermountain/aspect-ratio-finder)
+<h4 align="center">
+  <a href="https://beta.observablehq.com/@spencermountain/aspect-ratio-finder">Demo</a>
+</h4>
 
 
-
-<h2 align="right">ELI5 aspect-ratio:</h2>
+<h2 align="center">ELI5 aspect-ratio:</h2>
 
 ratios are (typically) given as `width:height`
 
