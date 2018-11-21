@@ -28,7 +28,9 @@
 
 <h1 align="center">🌴</h1>
 
-<code align="center">npm i fit-aspect-ratio</code>
+<div align="center">
+  <code>npm i fit-aspect-ratio</code>
+</div>
 
 ```js
 const aspect = require('fit-aspect-ratio')
