@@ -1,0 +1,1 @@
+const aspect = require('./src')

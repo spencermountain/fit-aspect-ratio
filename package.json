@@ -1,0 +1,32 @@
+{
+  "name": "fit-aspect-ratio",
+  "version": "0.0.1",
+  "description": "calculate good widths and heights",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "tape ./tests/*.test.js | tap-dancer",
+    "watch": "amble ./scratch.js",
+    "build": "browserify index.js -t [ babelify --presets [ @babel/preset-env ] ] | uglifyjs -m -c > ./assets/_bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spencermountain/be-aspect-ratio.git"
+  },
+  "author": "spencermountain",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/spencermountain/be-aspect-ratio/issues"
+  },
+  "homepage": "https://github.com/spencermountain/be-aspect-ratio#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "amble": "0.0.6",
+    "babelify": "^10.0.0",
+    "browserify": "^16.2.3",
+    "tap-dancer": "^0.1.2",
+    "tape": "^4.9.1",
+    "uglify-js": "^3.4.9"
+  }
+}
