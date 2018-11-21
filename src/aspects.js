@@ -42,7 +42,7 @@ const list = [
     orientation: 'landscape'
   },
   {
-    names: ['16:9', 'hdtv', 'hd', 'tv', '1.78:1', 'computer', 'iphone'],
+    names: ['16:9', 'hd', 'hdtv', 'fhd', 'tv', 'computer', 'iphone', '4k', '8k', '1.78:1'],
     description: 'HD video',
     decimal: 1.77777,
     orientation: 'landscape'
@@ -72,13 +72,13 @@ const list = [
     orientation: 'landscape'
   }
 ]
-//add portrait mode
-// let portrait = landscape.reverse().map((o) => {
-//   o = Object.assign({}, o)
-//   o.decimal = 1 / o.decimal
-//   o.orientation = 'portrait'
-//   return o
-// })
+//create portrait mode
+let portraits = list.map((o) => {
+  o = Object.assign({}, o)
+  o.decimal = 1 / o.decimal
+  o.orientation = 'portrait'
+  return o
+})
 // const list = portrait.concat(landscape)
 
 //flip it into a nice lookup hash
@@ -90,5 +90,6 @@ list.forEach((o) => {
 })
 module.exports = {
   lookup: lookup,
+  portraits: portraits,
   list: list
 }

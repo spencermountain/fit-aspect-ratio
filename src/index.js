@@ -3,8 +3,6 @@
 const findBestRatio = require('./find-best-ratio')
 const parseRatio = require('./parse-ratio')
 
-
-
 //
 const fitAspect = function(obj = {}) {
   //for these numbers, calculate best ratio
@@ -12,12 +10,13 @@ const fitAspect = function(obj = {}) {
     let aspect = findBestRatio(obj.width, obj.height)
     let inverse = 1 / aspect.decimal
     let height = obj.width * inverse
-    let fit = Math.abs(height / obj.height)
-    fit = parseInt(fit * 100, 10) / 100
+    //calculate change %
+    let change = (height - obj.height) / obj.height
+    change = parseInt(change * 1000, 10) / 10
     height = Math.round(height)
     return {
       aspect: aspect,
-      fit: fit,
+      percent_change: change,
       width: obj.width,
       height: height
     }
