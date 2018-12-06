@@ -1,8 +1,8 @@
 {
   "name": "fit-aspect-ratio",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "calculate good widths and heights",
-  "main": "./src/index.js",
+  "main": "./builds/fit-aspect-ratio.js",
   "scripts": {
     "test": "tape ./tests/*.test.js | tap-dancer",
     "watch": "amble ./scratch.js",
