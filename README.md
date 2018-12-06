@@ -69,7 +69,7 @@ aspect({ratio:'3:4', height:640, orientation:'portrait'}) //essentially '4:3'
 ```html
 <script src="https://unpkg.com/fit-aspect-ratio/builds/fit-aspect-ratio.js"></script>
 <script>
-  aspect({ratio:'A4', height:8.5, orientation:'landscape'})
+  fitAspect({ratio:'A4', height:8.5, orientation:'landscape'})
 </script>
 ```
 

@@ -1,12 +1,12 @@
 {
   "name": "fit-aspect-ratio",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "calculate good widths and heights",
   "main": "./builds/fit-aspect-ratio.js",
   "scripts": {
     "test": "tape ./tests/*.test.js | tap-dancer",
     "watch": "amble ./scratch.js",
-    "build": "browserify ./src/index.js -t [ babelify --presets [ @babel/preset-env ] ] | uglifyjs -m -c > ./builds/fit-aspect-ratio.js"
+    "build": "browserify ./src/index.js --standalone fitAspect -t [ babelify --presets [ @babel/preset-env ] ] | uglifyjs -m -c > ./builds/fit-aspect-ratio.js"
   },
   "repository": {
     "type": "git",
