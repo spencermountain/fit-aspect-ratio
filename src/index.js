@@ -35,11 +35,11 @@ const fitAspect = function(obj = {}) {
 
   //determine missing height
   if (typeof obj.width === 'number') {
-    return fit.width(obj, aspect)
+    return fit.height(obj, aspect)
   }
   //determine missing width
   if (typeof obj.height === 'number') {
-    return fit.height(obj, aspect)
+    return fit.width(obj, aspect)
   }
   //doh
   console.error('find-aspect-ratio error: Please supply a height, width, or ratio value.')
