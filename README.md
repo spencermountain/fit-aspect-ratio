@@ -104,4 +104,7 @@ height = 640 * inverse
 ```
 this took me a good while...
 
+## See also:
+* [aspect-crop](https://github.com/spencermountain/aspect-crop) - cropping images based on this library
+
 MIT
