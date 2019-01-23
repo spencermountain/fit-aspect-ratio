@@ -7,7 +7,7 @@ test('find-ratio', function(t) {
     width: 1280,
     height: 722
   })
-  t.equal(res.aspect.description, 'HD video', '16:9 found aspect');
+  t.equal(res.closest.description, 'HD video', '16:9 found aspect');
   t.equal(res.height, 720, '16:9 changed height');
   t.equal(res.width, 1280, '16:9 width unchanged');
   //1:1
@@ -15,7 +15,7 @@ test('find-ratio', function(t) {
     width: 900,
     height: 900
   })
-  t.equal(res.aspect.description, 'Square', '1:1 found aspect');
+  t.equal(res.closest.description, 'Square', '1:1 found aspect');
   t.equal(res.height, 900, '1:1 changed height');
   t.equal(res.width, 900, '1:! width unchanged');
   t.end();
@@ -54,9 +54,9 @@ test('portrait/landscape', function(t) {
       height: a[0]
     })
     let name = a.join('x')
-    t.equal(landscape.aspect.description, portrait.aspect.description, name + ' same ratio')
-    t.equal(landscape.aspect.orientation, 'landscape', name + ' landscape')
-    t.equal(portrait.aspect.orientation, 'portrait', name + ' portrait')
+    t.equal(landscape.closest.description, portrait.closest.description, name + ' same ratio')
+    t.equal(landscape.closest.orientation, 'landscape', name + ' landscape')
+    t.equal(portrait.closest.orientation, 'portrait', name + ' portrait')
     t.equal(landscape.percent_change, portrait.percent_change * -1, name + ' percent_change same')
   })
   t.end();

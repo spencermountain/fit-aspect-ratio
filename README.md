@@ -52,7 +52,7 @@ let res = aspect({
   width: 1280,
   height: 722 // (almost 1280×720 )
 })
-// { aspect:
+// { closest:
 //    { names: [ '16:9', ... ],
 //      description: 'HD video',
 //      decimal: 1.77777 },

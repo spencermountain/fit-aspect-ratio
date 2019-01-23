@@ -2,11 +2,12 @@
 // calculates widths/heights according to common aspect ratios.
 const findBestRatio = require('./find-best-ratio')
 const parseRatio = require('./parse-ratio')
+const fit = require('./fit')
 
 //
 const fitAspect = function(obj = {}) {
   //for these numbers, calculate best ratio
-  if (typeof obj.width === 'number' && typeof obj.height === 'number') {
+  if (!obj.aspect && !obj.ratio) {
     let aspect = findBestRatio(obj.width, obj.height)
     let inverse = 1 / aspect.decimal
     let height = obj.width * inverse
@@ -15,7 +16,7 @@ const fitAspect = function(obj = {}) {
     change = parseInt(change * 1000, 10) / 10
     height = Math.round(height)
     return {
-      aspect: aspect,
+      closest: aspect,
       percent_change: change,
       width: obj.width,
       height: height
@@ -27,39 +28,18 @@ const fitAspect = function(obj = {}) {
     console.error('find-aspect-ratio error: Could not find a given aspect ratio.')
     return obj
   }
+  //shrink both to fit
+  if (typeof obj.width === 'number' && typeof obj.height === 'number') {
+    return fit.both(obj, aspect)
+  }
+
   //determine missing height
   if (typeof obj.width === 'number') {
-    let decimal = 1 / aspect.decimal
-    let orientation = obj.orientation || 'landscape'
-    //reverse it (again), if in portrait
-    if (orientation === 'portrait') {
-      decimal = 1 / decimal
-    }
-    let height = obj.width * decimal
-    height = Math.round(height)
-    return {
-      aspect: aspect,
-      width: obj.width,
-      height: height,
-      orientation: orientation
-    }
+    return fit.width(obj, aspect)
   }
   //determine missing width
   if (typeof obj.height === 'number') {
-    let decimal = aspect.decimal
-    let orientation = obj.orientation || 'landscape'
-    //reverse it, if in portrait
-    if (orientation === 'portrait') {
-      decimal = 1 / decimal
-    }
-    let width = obj.height * decimal
-    width = Math.round(width)
-    return {
-      aspect: aspect,
-      width: width,
-      height: obj.height,
-      orientation: orientation
-    }
+    return fit.height(obj, aspect)
   }
   //doh
   console.error('find-aspect-ratio error: Please supply a height, width, or ratio value.')
