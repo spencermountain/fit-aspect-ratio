@@ -15,7 +15,7 @@ const list = [
   {
     names: ['a4', '√2:1', 'paper', 'lichtenberg', '1:1.41'],
     description: 'A4 paper',
-    decimal: 1.41,
+    decimal: 1.41
   },
   {
     names: ['imax', '1.43:1'],
@@ -42,7 +42,18 @@ const list = [
     orientation: 'landscape'
   },
   {
-    names: ['16:9', 'hd', 'hdtv', 'fhd', 'tv', 'computer', 'iphone', '4k', '8k', '1.78:1'],
+    names: [
+      '16:9',
+      'hd',
+      'hdtv',
+      'fhd',
+      'tv',
+      'computer',
+      'iphone',
+      '4k',
+      '8k',
+      '1.78:1'
+    ],
     description: 'HD video',
     decimal: 1.77777,
     orientation: 'landscape'
@@ -73,7 +84,7 @@ const list = [
   }
 ]
 //create portrait mode
-let portraits = list.map((o) => {
+let portraits = list.map(o => {
   o = Object.assign({}, o)
   o.decimal = 1 / o.decimal
   o.orientation = 'portrait'
@@ -83,8 +94,8 @@ let portraits = list.map((o) => {
 
 //flip it into a nice lookup hash
 let lookup = {}
-list.forEach((o) => {
-  o.names.forEach((name) => {
+list.forEach(o => {
+  o.names.forEach(name => {
     lookup[name] = o
   })
 })

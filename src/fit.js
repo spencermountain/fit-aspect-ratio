@@ -1,4 +1,3 @@
-
 const fitHeight = function(obj, aspect) {
   let decimal = 1 / aspect.decimal
   let orientation = obj.orientation || 'landscape'
@@ -44,7 +43,6 @@ const shrink = function(obj, aspect) {
   }
   return moveWidth
 }
-
 
 module.exports = {
   both: shrink,

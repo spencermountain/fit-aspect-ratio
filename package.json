@@ -1,12 +1,16 @@
 {
   "name": "fit-aspect-ratio",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "calculate good widths and heights",
   "main": "./builds/fit-aspect-ratio.js",
+  "unpkg": "./builds/fit-aspect-ratio.min.js",
+  "module": "./builds/compromise.mjs",
+  "type": "commonjs",
+  "sideEffects": false,
   "scripts": {
     "test": "tape ./tests/*.test.js | tap-dancer",
     "watch": "amble ./scratch.js",
-    "build": "browserify ./src/index.js --standalone fitAspect -t [ babelify --presets [ @babel/preset-env ] ] | uglifyjs -m -c > ./builds/fit-aspect-ratio.js"
+    "build": "rollup -c"
   },
   "repository": {
     "type": "git",
@@ -18,15 +22,21 @@
     "url": "https://github.com/spencermountain/be-aspect-ratio/issues"
   },
   "homepage": "https://github.com/spencermountain/be-aspect-ratio#readme",
-  "dependencies": {},
+  "dependencies": {
+    "@babel/preset-env": "^7.7.4"
+  },
   "devDependencies": {
-    "@babel/core": "^7.1.6",
-    "@babel/preset-env": "^7.1.6",
-    "amble": "0.0.6",
-    "babelify": "^10.0.0",
-    "browserify": "^16.2.3",
-    "tap-dancer": "^0.1.2",
-    "tape": "^4.9.1",
-    "uglify-js": "^3.4.9"
+    "@babel/core": "7.7.4",
+    "amble": "0.0.7",
+    "efrt": "2.2.1",
+    "rollup": "1.27.8",
+    "rollup-plugin-babel": "4.3.3",
+    "rollup-plugin-commonjs": "10.1.0",
+    "rollup-plugin-json": "4.0.0",
+    "rollup-plugin-node-resolve": "5.2.0",
+    "rollup-plugin-terser": "5.1.2",
+    "tap-dancer": "0.2.0",
+    "tape": "4.11.0",
+    "uglify-js": "3.7.1"
   }
 }
