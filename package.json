@@ -1,6 +1,6 @@
 {
   "name": "fit-aspect-ratio",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "calculate good widths and heights",
   "main": "./builds/fit-aspect-ratio.js",
   "unpkg": "./builds/fit-aspect-ratio.min.js",
@@ -22,21 +22,20 @@
     "url": "https://github.com/spencermountain/be-aspect-ratio/issues"
   },
   "homepage": "https://github.com/spencermountain/be-aspect-ratio#readme",
-  "dependencies": {
-    "@babel/preset-env": "^7.7.4"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@babel/core": "7.7.4",
-    "amble": "0.0.7",
-    "efrt": "2.2.1",
+    "@babel/core": "7.11.0",
+    "@babel/preset-env": "7.11.0",
+    "amble": "1.1.0",
+    "efrt": "2.2.2",
     "rollup": "1.27.8",
-    "rollup-plugin-babel": "4.3.3",
+    "rollup-plugin-babel": "4.4.0",
     "rollup-plugin-commonjs": "10.1.0",
     "rollup-plugin-json": "4.0.0",
     "rollup-plugin-node-resolve": "5.2.0",
     "rollup-plugin-terser": "5.1.2",
     "tap-dancer": "0.2.0",
-    "tape": "4.11.0",
-    "uglify-js": "3.7.1"
+    "tape": "5.0.1",
+    "uglify-js": "3.10.0"
   }
 }
